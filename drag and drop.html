@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{
+            height:75px;
+            width:250px;
+            padding:20px;
+            border:2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <img id="drag1" src="images.png" draggable="true" ondragstart="drag(event)" width="236" height="69">
+    <script>
+         function allowDrop(ev){
+             ev.preventDefault();
+         }
+        function drag(ev){
+            ev.dataTransfer.setData("suriya",ev.target.id);
+        }
+        function drop(ev){
+            ev.preventDefault();
+            var d=ev.dataTransfer.getData("suriya");
+            ev.target.appendChild(document.getElementById(d));
+        }
+    </script>
+</body>
+</html>

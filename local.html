@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            color:green;
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+            font-style: italic;
+        }
+        #data{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="name" placeholder="Enter Your Name"/>
+    <button type="submit" onclick="handleClick()">Submit</button>
+    <div id="data"></div>
+    <div id="loc"></div>
+    <script>
+        function handleClick(){
+            if(typeof(Storage)!=="undefined"){
+                let name=document.getElementById("name").value;
+                localStorage.setItem("name",name);
+                document.getElementById("data").innerHTML="Welcome"+" "+localStorage.name;
+                // sessionStorage.setItem("name",name);
+                // document.getElementById("data").innerHTML="Welcome"+" "+sessionStorage.name;
+
+            }
+            else{
+                alert("Your Browser does not support Storage..")
+            }
+        }
+        var x=localStorage.getItem("name");
+        document.getElementById("loc").innerHTML=x;
+        // var x=sessonStorage.getItem("name");
+        // document.getElementById("loc").innerHTML=x;
+        // 
+    </script>
+</body>
+</html>
